@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeko - Designer & Blogger Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans for clean typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        meekoBg: '#E7E6FB',
+                        meekoCardBg: '#FFFFFF',
+                        meekoBorder: '#2D2D2D',
+                        meekoText: '#18181B',
+                        meekoMuted: '#64748B',
+                        badgeBlue: '#E1F0FF',
+                        badgePink: '#FFE5EC',
+                        badgeYellow: '#FFF3C4',
+                        badgeGreen: '#E2F7ED',
+                    },
+                    boxShadow: {
+                        'stroke': '0 0 0 1.5px #2D2D2D',
+                        'stroke-lg': '0 0 0 2px #2D2D2D',
+                        'card': '0 8px 30px rgba(0, 0, 0, 0.04)',
+                        'floating': '0 12px 24px -6px rgba(0, 0, 0, 0.08)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #E7E6FB;
+            color: #18181B;
+            overflow-x: hidden;
+        }
+
+        /* Custom decorative strokes */
+        .meeko-border {
+            border: 1.5px solid #2D2D2D;
+        }
+        
+        .meeko-border-thick {
+            border: 2px solid #2D2D2D;
+        }
+
+        /* Hero Sticker Rotations */
+        .sticker-left {
+            transform: rotate(-8deg);
+        }
+        .sticker-right {
+            transform: rotate(12deg);
+        }
+
+        /* Card transition effects */
+        .hover-lift {
+            transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-start pb-20 pt-4 px-3 sm:px-6">
+
+    <!-- Top Navigation Header Bar -->
+    <header class="w-full max-w-6xl sticky top-4 z-50 mb-8 sm:mb-12">
+        <nav class="bg-white/90 backdrop-blur-md meeko-border-thick rounded-full px-4 sm:px-8 py-3 flex items-center justify-between shadow-sm">
+            <!-- Brand Logo -->
+            <a href="#" class="text-xl sm:text-2xl font-extrabold tracking-tight text-meekoText">
+                Meeko
+            </a>
+
+            <!-- Navigation Links -->
+            <ul class="hidden md:flex items-center space-x-4 lg:space-x-7 text-xs lg:text-sm font-semibold text-meekoText">
+                <li><a href="#home" class="hover:text-purple-600 transition-colors">Home</a></li>
+                <li class="text-gray-300">•</li>
+                <li><a href="#portfolio" class="hover:text-purple-600 transition-colors">Portfolio</a></li>
+                <li class="text-gray-300">•</li>
+                <li><a href="#about" class="hover:text-purple-600 transition-colors">About</a></li>
+                <li class="text-gray-300">•</li>
+                <li><a href="#journal" class="hover:text-purple-600 transition-colors">Blog</a></li>
+                <li class="text-gray-300">•</li>
+                <li><a href="#contact" class="hover:text-purple-600 transition-colors">Contact</a></li>
+                <li class="text-gray-300">•</li>
+                <li><a href="#other" class="text-meekoMuted hover:text-purple-600 transition-colors">Other</a></li>
+            </ul>
+
+            <!-- Social Media Buttons -->
+            <div class="flex items-center space-x-2">
+                <a href="https://x.com" target="_blank" rel="noopener noreferrer" 
+                   class="w-8 h-8 sm:w-9 sm:h-9 meeko-border rounded-lg flex items-center justify-center text-xs font-bold hover:bg-gray-100 transition-colors"
+                   aria-label="X / Twitter">
+                   𝕏
+                </a>
+                <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer" 
+                   class="w-8 h-8 sm:w-9 sm:h-9 meeko-border rounded-full flex items-center justify-center text-sm text-meekoText hover:bg-gray-100 transition-colors"
+                   aria-label="Dribbble">
+                   <i class="fa-solid font-bold fa-globe text-xs"></i>
+                </a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" 
+                   class="w-8 h-8 sm:w-9 sm:h-9 meeko-border rounded-lg flex items-center justify-center text-sm text-meekoText hover:bg-gray-100 transition-colors"
+                   aria-label="Instagram">
+                   <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Container -->
+    <main class="w-full max-w-6xl flex flex-col items-center">
+
+        <!-- HERO SECTION -->
+        <section id="home" class="relative w-full text-center py-8 md:py-16 px-4 flex flex-col items-center justify-center">
+            
+            <!-- Left Sticker ("Web Development") -->
+            <div class="hidden sm:flex absolute left-2 lg:left-12 top-10 sticker-left bg-badgeBlue meeko-border rounded-full px-4 py-2 items-center gap-2 shadow-sm text-xs font-semibold text-meekoText pointer-events-none select-none">
+                <span class="text-amber-400">✦</span>
+                <span>Web Development</span>
+            </div>
+
+            <!-- Left Doodle Pencil Icon -->
+            <div class="hidden sm:block absolute left-8 lg:left-24 bottom-6 text-meekoText opacity-70 pointer-events-none select-none">
+                <svg width="48" height="48" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 35C15 32 20 40 15 42C10 44 8 38 12 36" stroke="#2D2D2D" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M18 33L38 13C39.5 11.5 42 11.5 43.5 13C45 14.5 45 17 43.5 18.5L23.5 38.5L15 41L18 33Z" stroke="#2D2D2D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+
+            <!-- Right Sticker ("No-code Design") -->
+            <div class="hidden sm:flex absolute right-2 lg:right-12 bottom-12 sticker-right bg-badgePink meeko-border rounded-full px-4 py-2 items-center gap-2 shadow-sm text-xs font-semibold text-meekoText pointer-events-none select-none">
+                <span class="text-xs">✌️</span>
+                <span>No-code Design</span>
+            </div>
+
+            <!-- Right Doodle Arrow Icon -->
+            <div class="hidden sm:block absolute right-8 lg:right-28 top-4 text-meekoText opacity-70 pointer-events-none select-none">
+                <svg width="50" height="50" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 15 C 35 5, 45 35, 48 45" stroke="#2D2D2D" stroke-width="2" stroke-linecap="round" fill="none"/>
+                    <path d="M40 40 L 48 45 L 43 35" stroke="#2D2D2D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+            </div>
+
+            <!-- Main Heading with Avatar Badge embedded -->
+            <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-meekoText leading-tight max-w-4xl">
+                Hello! 
+                <span class="inline-block align-middle mx-1 sm:mx-2 my-1">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" 
+                         alt="Meeko Avatar" 
+                         class="w-12 h-12 sm:w-16 sm:h-16 rounded-full object-cover meeko-border ring-4 ring-pink-200"
+                         onerror="this.onerror=null; this.src='https://placehold.co/100x100/f472b6/ffffff?text=M';">
+                </span> 
+                I'm Meeko.<br>
+                a designer &amp; blogger.
+            </h1>
+
+            <!-- Subtitle Description -->
+            <p class="mt-6 text-sm sm:text-base md:text-lg text-meekoText/80 max-w-2xl font-medium leading-relaxed">
+                My focus is on cultivating a positive culture through the creation of inspiring articles that <strong class="text-meekoText font-bold">explore design</strong>, and <strong class="text-meekoText font-bold">web-related topics</strong>.
+            </p>
+
+        </section>
+
+        <!-- 3-CARD NAVIGATION GRID SECTION -->
+        <section class="w-full grid grid-cols-1 md:grid-cols-3 gap-6 my-10 px-2 sm:px-0">
+            
+            <!-- Card 1: My Portfolio -->
+            <div id="portfolio" class="bg-white rounded-3xl p-8 meeko-border flex flex-col items-center text-center justify-between hover-lift">
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 mb-6 flex items-center justify-center">
+                        <!-- Custom Wireframe Icon -->
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="6" y="10" width="36" height="28" rx="3" stroke="#2D2D2D" stroke-width="2"/>
+                            <line x1="6" y1="18" x2="42" y2="18" stroke="#2D2D2D" stroke-width="2"/>
+                            <rect x="10" y="23" width="12" height="10" rx="1" stroke="#2D2D2D" stroke-width="1.5"/>
+                            <circle cx="33" cy="28" r="5" stroke="#2D2D2D" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <h2 class="text-xl font-bold text-meekoText mb-3">My Portfolio</h2>
+                    <p class="text-xs sm:text-sm text-meekoMuted font-medium leading-relaxed mb-6">
+                        Check out some of my portfolio with creative ideas and design.
+                    </p>
+                </div>
+                <button onclick="scrollToWorks()" class="w-10 h-10 bg-blue-100 meeko-border rounded-full flex items-center justify-center text-meekoText hover:bg-blue-200 transition-colors" aria-label="Go to portfolio">
+                    <i class="fa-solid fa-arrow-right text-sm"></i>
+                </button>
+            </div>
+
+            <!-- Card 2: My Journal -->
+            <div id="journal" class="bg-white rounded-3xl p-8 meeko-border flex flex-col items-center text-center justify-between hover-lift">
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 mb-6 flex items-center justify-center">
+                        <!-- Custom Notebook & Pen Icon -->
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="12" y="8" width="24" height="32" rx="2" stroke="#2D2D2D" stroke-width="2"/>
+                            <line x1="18" y1="16" x2="30" y2="16" stroke="#2D2D2D" stroke-width="1.5"/>
+                            <line x1="18" y1="22" x2="30" y2="22" stroke="#2D2D2D" stroke-width="1.5"/>
+                            <line x1="18" y1="28" x2="26" y2="28" stroke="#2D2D2D" stroke-width="1.5"/>
+                            <path d="M34 10L38 14L30 22L26 22L26 18L34 10Z" stroke="#2D2D2D" stroke-width="1.5" fill="#FFF3C4"/>
+                        </svg>
+                    </div>
+                    <h2 class="text-xl font-bold text-meekoText mb-3">My Journal</h2>
+                    <p class="text-xs sm:text-sm text-meekoMuted font-medium leading-relaxed mb-6">
+                        Here I share my insights as a freelancer, with tips and tricks.
+                    </p>
+                </div>
+                <a href="#about" class="w-10 h-10 bg-badgeYellow meeko-border rounded-full flex items-center justify-center text-meekoText hover:bg-amber-200 transition-colors" aria-label="Go to journal">
+                    <i class="fa-solid fa-arrow-right text-sm"></i>
+                </a>
+            </div>
+
+            <!-- Card 3: Contact Me -->
+            <div id="contact" class="bg-white rounded-3xl p-8 meeko-border flex flex-col items-center text-center justify-between hover-lift">
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 mb-6 flex items-center justify-center">
+                        <!-- Custom Envelope Icon -->
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="8" y="12" width="32" height="24" rx="3" stroke="#2D2D2D" stroke-width="2"/>
+                            <path d="M8 14L24 26L40 14" stroke="#2D2D2D" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h2 class="text-xl font-bold text-meekoText mb-3">Contact Me</h2>
+                    <p class="text-xs sm:text-sm text-meekoMuted font-medium leading-relaxed mb-6">
+                        If you like what you see, let's work to bring your vision to life.
+                    </p>
+                </div>
+                <a href="mailto:hello@meeko-design.com" class="w-10 h-10 bg-teal-100 meeko-border rounded-full flex items-center justify-center text-meekoText hover:bg-teal-200 transition-colors" aria-label="Contact Me">
+                    <i class="fa-solid fa-arrow-right text-sm"></i>
+                </a>
+            </div>
+
+        </section>
+
+        <!-- PORTFOLIO HEADER -->
+        <div id="selected-works" class="w-full text-center mt-12 mb-10 px-4">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-meekoText">My selected works</h2>
+            <p class="mt-4 text-sm sm:text-base text-meekoText/80 max-w-xl mx-auto font-medium">
+                With my keen eye for detail and sharp critical thinking skills, I specialize in crafting captivating 
+                <strong class="font-bold underline decoration-wavy decoration-purple-300">websites</strong>, 
+                <strong class="font-bold">products</strong>, and 
+                <strong class="font-bold underline decoration-gray-400">experiences</strong>.
+            </p>
+        </div>
+
+        <!-- STACKED PORTFOLIO CARDS CONTAINER -->
+        <section class="w-full space-y-8 px-2 sm:px-0 mb-20">
+            
+            <!-- Project Card 1 -->
+            <article class="bg-white rounded-3xl p-6 sm:p-10 meeko-border flex flex-col md:flex-row items-center justify-between gap-8 hover-lift">
+                <div class="w-full md:w-1/2 flex flex-col items-start pr-0 md:pr-4">
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-meekoText mb-2">Desk Brand Stationery</h3>
+                    <p class="text-xs font-bold text-meekoMuted tracking-wider uppercase mb-6">UI/UX DESIGN, WEB DESIGN</p>
+                    <p class="text-xs sm:text-sm text-meekoMuted leading-relaxed mb-8">
+                        Praesent commodo cursus magna, vel nisl scelerisque nisl consectetur et. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.
+                    </p>
+                    <button onclick="openModal('Desk Brand Stationery')" class="bg-white text-xs sm:text-sm font-bold text-meekoText px-6 py-2.5 rounded-xl meeko-border hover:bg-gray-50 transition-colors shadow-sm">
+                        View Project
+                    </button>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=800&q=80" 
+                         alt="Desk Brand Stationery Project Mockup" 
+                         class="w-full h-64 sm:h-80 object-cover rounded-2xl meeko-border"
+                         onerror="this.onerror=null; this.src='https://placehold.co/800x600/f1f5f9/1e293b?text=Desk+Brand+Stationery';">
+                </div>
+            </article>
+
+            <!-- Project Card 2 -->
+            <article class="bg-white rounded-3xl p-6 sm:p-10 meeko-border flex flex-col md:flex-row items-center justify-between gap-8 hover-lift">
+                <div class="w-full md:w-1/2 flex flex-col items-start pr-0 md:pr-4">
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-meekoText mb-2">Notebook Notes Stationery Scene</h3>
+                    <p class="text-xs font-bold text-meekoMuted tracking-wider uppercase mb-6">APP DESIGN, WEB DESIGN</p>
+                    <p class="text-xs sm:text-sm text-meekoMuted leading-relaxed mb-8">
+                        Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras justo odio, dapibus ac facilisis.
+                    </p>
+                    <button onclick="openModal('Notebook Notes Stationery Scene')" class="bg-white text-xs sm:text-sm font-bold text-meekoText px-6 py-2.5 rounded-xl meeko-border hover:bg-gray-50 transition-colors shadow-sm">
+                        View Project
+                    </button>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80" 
+                         alt="Notebook Notes Stationery Scene Mockup" 
+                         class="w-full h-64 sm:h-80 object-cover rounded-2xl meeko-border"
+                         onerror="this.onerror=null; this.src='https://placehold.co/800x600/e2e8f0/1e293b?text=Notebook+Notes+Scene';">
+                </div>
+            </article>
+
+            <!-- Project Card 3 -->
+            <article class="bg-white rounded-3xl p-6 sm:p-10 meeko-border flex flex-col md:flex-row items-center justify-between gap-8 hover-lift">
+                <div class="w-full md:w-1/2 flex flex-col items-start pr-0 md:pr-4">
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-meekoText mb-2">Manual Product Box</h3>
+                    <p class="text-xs font-bold text-meekoMuted tracking-wider uppercase mb-6">BRANDING, WEB DESIGN</p>
+                    <p class="text-xs sm:text-sm text-meekoMuted leading-relaxed mb-8">
+                        Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam quis risus eget urna mollis ornare.
+                    </p>
+                    <button onclick="openModal('Manual Product Box')" class="bg-white text-xs sm:text-sm font-bold text-meekoText px-6 py-2.5 rounded-xl meeko-border hover:bg-gray-50 transition-colors shadow-sm">
+                        View Project
+                    </button>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80" 
+                         alt="Manual Product Box Mockup" 
+                         class="w-full h-64 sm:h-80 object-cover rounded-2xl meeko-border"
+                         onerror="this.onerror=null; this.src='https://placehold.co/800x600/bae6fd/0369a1?text=Manual+Product+Box';">
+                </div>
+            </article>
+
+            <!-- Project Card 4 -->
+            <article class="bg-white rounded-3xl p-6 sm:p-10 meeko-border flex flex-col md:flex-row items-center justify-between gap-8 hover-lift">
+                <div class="w-full md:w-1/2 flex flex-col items-start pr-0 md:pr-4">
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-meekoText mb-2">Notebook Stationery</h3>
+                    <p class="text-xs font-bold text-meekoMuted tracking-wider uppercase mb-6">BRANDING, WEB DESIGN</p>
+                    <p class="text-xs sm:text-sm text-meekoMuted leading-relaxed mb-8">
+                        Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus nullam quis.
+                    </p>
+                    <button onclick="openModal('Notebook Stationery')" class="bg-white text-xs sm:text-sm font-bold text-meekoText px-6 py-2.5 rounded-xl meeko-border hover:bg-gray-50 transition-colors shadow-sm">
+                        View Project
+                    </button>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=800&q=80" 
+                         alt="Notebook Stationery Mockup" 
+                         class="w-full h-64 sm:h-80 object-cover rounded-2xl meeko-border"
+                         onerror="this.onerror=null; this.src='https://placehold.co/800x600/dcfce7/15803d?text=Notebook+Stationery';">
+                </div>
+            </article>
+
+        </section>
+
+        <!-- CTA & TESTIMONIALS SECTION -->
+        <section id="about" class="w-full flex flex-col items-center text-center my-12 px-4">
+            
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-meekoText mb-6">Are you ready to see more?</h2>
+            
+            <button onclick="scrollToWorks()" class="bg-white text-xs sm:text-sm font-bold text-meekoText px-8 py-3 rounded-xl meeko-border hover:bg-gray-50 transition-colors shadow-sm mb-16">
+                See All Works
+            </button>
+
+            <!-- Decorative Quote Icon (66) -->
+            <div class="text-4xl text-amber-300 font-serif font-black mb-4 select-none">
+                ““
+            </div>
+
+            <!-- Testimonial Quote -->
+            <blockquote class="text-base sm:text-xl font-semibold text-meekoText max-w-2xl leading-relaxed mb-6">
+                "I've been using this product for a month now, and I can honestly say it's changed my life. The results are incredible, and I couldn't be happier. Highly recommend!"
+            </blockquote>
+
+            <!-- Author Info -->
+            <div class="mb-8">
+                <p class="font-bold text-meekoText text-sm sm:text-base">Cory Zamora</p>
+                <p class="text-xs sm:text-sm text-meekoMuted font-medium">Marketing Specialist</p>
+            </div>
+
+            <!-- Testimonial Avatars Row -->
+            <div class="flex items-center space-x-3">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80" 
+                     alt="Testimonial User 1" 
+                     class="w-12 h-12 rounded-full object-cover meeko-border"
+                     onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/1e293b?text=U1';">
+                
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" 
+                     alt="Cory Zamora Avatar" 
+                     class="w-14 h-14 rounded-full object-cover meeko-border ring-4 ring-teal-200 scale-110 z-10"
+                     onerror="this.onerror=null; this.src='https://placehold.co/100x100/ccfbf1/0f766e?text=CZ';">
+                
+                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80" 
+                     alt="Testimonial User 3" 
+                     class="w-12 h-12 rounded-full object-cover meeko-border"
+                     onerror="this.onerror=null; this.src='https://placehold.co/100x100/fce7f3/9d174d?text=U3';">
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full max-w-6xl mt-16 pt-8 border-t border-meekoText/10 text-center text-xs text-meekoMuted font-medium">
+        <p>© 2026 Meeko Portfolio. Designed with care.</p>
+    </footer>
+
+    <!-- Interactive Project Modal (No alert used) -->
+    <div id="projectModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl meeko-border p-6 sm:p-8 max-w-lg w-full relative shadow-2xl">
+            <button onclick="closeModal()" class="absolute top-4 right-4 w-8 h-8 meeko-border rounded-full flex items-center justify-center text-xs font-bold hover:bg-gray-100">✕</button>
+            <h3 id="modalTitle" class="text-2xl font-extrabold text-meekoText mb-3">Project Details</h3>
+            <p class="text-sm text-meekoMuted mb-6">
+                You are viewing details for this portfolio item. All design components follow the rounded brutalist aesthetic with pastel accents.
+            </p>
+            <div class="flex justify-end">
+                <button onclick="closeModal()" class="bg-meekoText text-white text-xs font-bold px-5 py-2.5 rounded-xl hover:bg-gray-800 transition-colors">
+                    Close Preview
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Scripts -->
+    <script>
+        function openModal(title) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('projectModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('projectModal').classList.add('hidden');
+        }
+
+        function scrollToWorks() {
+            const el = document.getElementById('selected-works');
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>
